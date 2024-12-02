@@ -1,37 +1,30 @@
-abstract class Bottle {
-  void open(); 
-
-  factory Bottle(String type) {
-    if (type == 'Coke') {
-      return CokeBottle();
-    } else if (type == 'Pepsi') {
+abstract class Bottle{
+  factory Bottle(String brand){
+    if(brand == 'Pepsi'){
       return PepsiBottle();
-    } else {
-      throw ArgumentError('Unknown bottle type: $type');
     }
+    return CokeBottle();
   }
+  open();
 }
 
-class CokeBottle implements Bottle {
+class CokeBottle implements Bottle{
   @override
-  void open() {
+  open() {
+    print(super.toString());
     print('Coke bottle is opened');
   }
 }
 
-class PepsiBottle implements Bottle {
+class PepsiBottle implements Bottle{
   @override
-  void open() {
+  open() {
+    print(super.toString());
     print('Pepsi bottle is opened');
   }
 }
 
-void main() {
-  Bottle cokeBottle = Bottle('Coke');
-  print('Instance of CokeBottle = $cokeBottle');
-  cokeBottle.open();
-
-  Bottle pepsiBottle = Bottle('Pepsi');
-  print('Instance of PepsiBottle = $pepsiBottle');
-  pepsiBottle.open();
+void main(){
+  Bottle coke = Bottle('Fanta');
+  coke.open();
 }
